@@ -127,9 +127,7 @@ def Index(a, b, ctx=None):
 
 
 def Slice(a, b, c, ctx=None):
-    return slice(safe_cast(a, str),
-                 safe_cast(b, int),
-                 safe_cast(c, int))
+    return slice(safe_cast(a, str), safe_cast(b, int), safe_cast(c, int))
 
 
 def Head(a, b, ctx=None):
@@ -145,3 +143,7 @@ def Halve(a, ctx=None):
         return divide(a, 2)
     elif typecheck(args=[a], types=[str]):
         return halvestr(a)
+
+
+def LoopVar(ctx=None):
+    if ctx: return ctx.loop

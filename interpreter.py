@@ -52,4 +52,4 @@ class Interprete:
 
 
 def run(text, ctx=Context()):
-    return Interprete().main(parse(unpack(structure(tokenize(text)))), ctx)
+    return Interprete().main(parse(unpack(structure(tokenize(text)), ctx)), ctx)

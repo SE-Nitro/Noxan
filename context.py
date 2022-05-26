@@ -5,3 +5,4 @@ class Context:
     def __init__(self):
         self.printed = False
         self.print = ""
+        self.loop = 0

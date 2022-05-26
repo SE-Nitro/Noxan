@@ -30,5 +30,6 @@ elements = {
     "s": Element(arity=3, func=Slice),
     "h": Element(arity=2, func=Head),
     "t": Element(arity=2, func=Tail),
-    "½": Element(arity=1, func=Halve)
+    "½": Element(arity=1, func=Halve),
+    "n": Element(arity=0, func=LoopVar),
 }

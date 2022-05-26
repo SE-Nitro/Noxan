@@ -1,9 +1,10 @@
 from tokenizer import Token, tokenize
 from structure import ForLoop
 from structure import structure
+from context import Context
 
 
-def unpack_forLoop(tokens):
+def unpack_forLoop(tokens: list[Token], ctx=None):
     unpacked_tokens = []
 
     for token in tokens:
@@ -11,13 +12,14 @@ def unpack_forLoop(tokens):
             unpacked_tokens.append(token)
         elif isinstance(token, ForLoop):
             for _ in range(token.number.value):
-                unpacked_tokens.extend(unpack_forLoop(token.body))
+                ctx.loop += 1
+                unpacked_tokens.extend(unpack_forLoop(token.body, ctx))
 
     return unpacked_tokens
 
 
-def unpack(tokens):
-    return unpack_forLoop(tokens)
+def unpack(tokens, ctx=None):
+    return unpack_forLoop(tokens, ctx)
 
 
 if __name__ == "__main__":
