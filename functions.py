@@ -146,4 +146,4 @@ def Halve(a, ctx=None):
 
 
 def LoopVar(ctx=None):
-    if ctx: return ctx.loop
+    return 0
